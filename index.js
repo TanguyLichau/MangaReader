@@ -8,7 +8,7 @@ const bodyParser = require('body-parser')
 
 
 app.use(bodyParser.json())
-app.use('/test', mangaController )
+app.use('/manga', mangaController )
 
 
 async function main() {

@@ -1,12 +1,16 @@
 // This file is used to map API calls (Presentation Layer) with the Business-Logic layer
 
 const router = require('express').Router()
-const mangasService = require('./mangas.service')
+const mangaService = require('./mangas.service')
 
-router.get('/', mangasService.getAllMangas)
+router.get('/', mangaService.getAllMangas)
 
-// router.get('/:id', mangasService.getAllMangas)
+router.get('/:id', mangaService.getManga)
 
-router.post('/', mangasService.createManga)
+router.post('/', mangaService.createManga)
+
+router.put('/:id', mangaService.updateManga)
+
+router.delete('/:id', mangaService.deleteManga)
 
 module.exports = router;
