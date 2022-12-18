@@ -1,9 +1,19 @@
 // This file holds the Business-Logic layer, interacting with Data Layer
+const mangaModel = require('./mangas.model')
 
-function BasicGet(req , res) {
-    res.send('Hello World!')
+function getAllMangas(req , res) {
+    mangaModel.find({})
+    .then(result => res.status(200).json({ result }))
+	.catch(error => res.status(500).json({msg: error}))
+}
+
+function createManga (req, res) {
+    mangaModel.create(req.body)
+	.then(result => res.status(200).json({ result }))
+	//.catch((error) => res.status(500).json({msg:  error }))
 }
 
 module.exports = {
-    BasicGet
+    getAllMangas,
+    createManga
 }

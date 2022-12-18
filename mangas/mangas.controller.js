@@ -3,7 +3,10 @@
 const router = require('express').Router()
 const mangasService = require('./mangas.service')
 
-router.get('/', mangasService.BasicGet)
+router.get('/', mangasService.getAllMangas)
 
+// router.get('/:id', mangasService.getAllMangas)
+
+router.post('/', mangasService.createManga)
 
 module.exports = router;

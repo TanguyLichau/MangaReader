@@ -4,8 +4,10 @@ const mangaController = require('./mangas/mangas.controller')
 const port = 3000
 const mongoose = require('mongoose')
 require('dotenv').config()
+const bodyParser = require('body-parser')
 
 
+app.use(bodyParser.json())
 app.use('/test', mangaController )
 
 
