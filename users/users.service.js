@@ -26,6 +26,10 @@ async function loginUser(req, res) {
   console.log("dedans");
 }
 
+async function logoutUser(req, res) {
+  console.log("dedans");
+}
+
 async function getAllUsers(req, res) {
   userModel
     .find({})
@@ -42,6 +46,7 @@ async function deleteCurrentUser(req, res) {}
 module.exports = {
   registerUser,
   loginUser,
+  logoutUser,
   getAllUsers,
   checkPassword,
   getCurrentUser,

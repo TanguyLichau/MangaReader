@@ -12,12 +12,14 @@ router.post(
   userService.loginUser
 );
 
+router.get("/logout", userService.logoutUser);
+
 router.get("/", userService.getAllUsers);
 
-router.get("/me", getCurrentUser);
+router.get("/me", userService.getCurrentUser);
 
-router.put("/me", updateCurrentUser);
+router.put("/me", userService.updateCurrentUser);
 
-router.delete("/me", deleteCurrentUser);
+router.delete("/me", userService.deleteCurrentUser);
 
 module.exports = router;
