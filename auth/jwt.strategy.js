@@ -8,25 +8,17 @@ let opts = {};
 opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
 opts.secretOrKey = process.env.JWT_SECRET;
 
-const cookieExtractor = (req) => {
-  let jwt = null;
-
-  if (req && req.cookies) {
-    jwt = req.cookies["jwt"];
-  }
-
-  return jwt;
-};
-
 passport.use(
-  "jwt",
-  new JwtStrategy(opts, (jwtPayload, done) => {
-    const { expiration } = jwtPayload;
-
-    if (Date.now() > expiration) {
-      done("Unauthorized", false);
-    }
-
-    done(null, jwtPayload);
+  new JwtStrategy(opts, function (jwt_payload, done) {
+    User.findOne({ _id: jwt_payload.sub }, function (err, user) {
+      if (err) {
+        return done(err, false);
+      }
+      if (user) {
+        return done(null, user);
+      } else {
+        return done(null, false);
+      }
+    });
   })
 );

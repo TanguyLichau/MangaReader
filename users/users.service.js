@@ -1,5 +1,6 @@
 const userModel = require("./users.model");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 
 async function checkPassword(username, password) {
   const user = await userModel.findOne({ username });
@@ -23,7 +24,11 @@ async function registerUser(req, res) {
 }
 
 async function loginUser(req, res) {
-  console.log("dedans");
+  const payload = {
+    sub: req.user._id,
+  };
+  let token = jwt.sign(payload, process.env.JWT_SECRET);
+  res.status(200).json({ token });
 }
 
 async function logoutUser(req, res) {

@@ -5,7 +5,16 @@ const userController = require("./users/users.controller");
 const port = 3000;
 const mongoose = require("mongoose");
 require("dotenv").config();
+const session = require("express-session");
 const bodyParser = require("body-parser");
+
+app.use(
+  session({
+    secret: "YOUR_SECRET_HERE",
+    resave: false,
+    saveUninitialized: false,
+  })
+);
 
 app.use(bodyParser.json());
 app.use("/users", userController);
