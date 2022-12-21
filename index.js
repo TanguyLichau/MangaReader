@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const mangaController = require("./mangas/mangas.controller");
-const userController = require("./users/user.controller");
+const userController = require("./users/users.controller");
 const port = 3000;
 const mongoose = require("mongoose");
 require("dotenv").config();
