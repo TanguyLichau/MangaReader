@@ -33,9 +33,18 @@ async function getAllUsers(req, res) {
     .catch((error) => res.status(500).json({ msg: error }));
 }
 
+async function getCurrentUser(req, res) {}
+
+async function updateCurrentUser(req, res) {}
+
+async function deleteCurrentUser(req, res) {}
+
 module.exports = {
   registerUser,
   loginUser,
   getAllUsers,
   checkPassword,
+  getCurrentUser,
+  updateCurrentUser,
+  deleteCurrentUser,
 };

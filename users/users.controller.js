@@ -14,4 +14,10 @@ router.post(
 
 router.get("/", userService.getAllUsers);
 
+router.get("/me", getCurrentUser);
+
+router.put("/me", updateCurrentUser);
+
+router.delete("/me", deleteCurrentUser);
+
 module.exports = router;
