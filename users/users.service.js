@@ -43,7 +43,11 @@ async function getAllUsers(req, res) {
 }
 
 async function getCurrentUser(req, res) {
-  console.log(req.user._id);
+  res.json({
+    id: req.user.id,
+    username: req.user.username,
+    password: req.user.password,
+  });
 }
 
 async function updateCurrentUser(req, res) {
