@@ -63,7 +63,12 @@ async function updateCurrentUser(req, res) {
     .catch((error) => res.status(404).json({ msg: error }));
 }
 
-async function deleteCurrentUser(req, res) {}
+async function deleteCurrentUser(req, res) {
+  mangaModel
+    .findOneAndDelete({ _id: req.user._id })
+    .then((result) => res.status(200).json({ result }))
+    .catch((error) => res.status(404).json({ msg: error }));
+}
 
 module.exports = {
   registerUser,
