@@ -10,12 +10,16 @@ router.post("/login", passport.authenticate("local"), userService.loginUser);
 
 router.get("/logout", userService.logoutUser);
 
-router.get("/", userService.getAllUsers);
+router.get("/", passport.authenticate("jwt"), userService.getAllUsers);
 
-router.get("/me", userService.getCurrentUser);
+router.get("/me", passport.authenticate("jwt"), userService.getCurrentUser);
 
-router.put("/me", userService.updateCurrentUser);
+router.put("/me", passport.authenticate("jwt"), userService.updateCurrentUser);
 
-router.delete("/me", userService.deleteCurrentUser);
+router.delete(
+  "/me",
+  passport.authenticate("jwt"),
+  userService.deleteCurrentUser
+);
 
 module.exports = router;

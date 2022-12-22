@@ -42,7 +42,9 @@ async function getAllUsers(req, res) {
     .catch((error) => res.status(500).json({ msg: error }));
 }
 
-async function getCurrentUser(req, res) {}
+async function getCurrentUser(req, res) {
+  console.log(req.user._id);
+}
 
 async function updateCurrentUser(req, res) {}
 
