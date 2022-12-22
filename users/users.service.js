@@ -46,7 +46,22 @@ async function getCurrentUser(req, res) {
   console.log(req.user._id);
 }
 
-async function updateCurrentUser(req, res) {}
+async function updateCurrentUser(req, res) {
+  userModel
+    .findOneAndUpdate(
+      { _id: req.user._id },
+      {
+        username: req.body.username,
+        password: await bcrypt.hash(req.body.password, 10),
+      },
+      {
+        new: true,
+        runValidators: true,
+      }
+    )
+    .then((result) => res.status(200).json({ result }))
+    .catch((error) => res.status(404).json({ msg: error }));
+}
 
 async function deleteCurrentUser(req, res) {}
 
