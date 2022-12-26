@@ -15,3 +15,10 @@ For development, you will need Node.js and a node global package. You will also 
     git clone https://github.com/TanguyLichau/MangaReader-Backend
     cd MangaReader-Backend
     npm install
+
+After installation you can run the project with
+
+```
+node index.js
+```
+You can then access the api at localhost:3000
