@@ -1,8 +1,8 @@
 # MangaReader Backend
 
-This is the API which will be used in the uoming MangaReader Frontend project.  
+This is the API which will be used in the upcoming MangaReader Frontend project.  
 It is a simple CRUD API that allows the user to interact with a MongoDB Cloud database in order to retrieve information about mangas stored there.  
-This API inudes a local strategy to login and a JWT strategy to access protected routes.
+This API includes a local strategy to login and a JWT strategy to access protected routes.
 
 ---
 
