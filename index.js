@@ -7,6 +7,7 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 const session = require("express-session");
 const bodyParser = require("body-parser");
+const cors = require("cors");
 
 app.use(
   session({
@@ -16,6 +17,7 @@ app.use(
   })
 );
 
+app.use(cors());
 app.use(bodyParser.json());
 app.use("/users", userController);
 app.use("/manga", mangaController);
