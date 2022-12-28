@@ -1,16 +1,18 @@
 // This file is used to map API calls (Presentation Layer) with the Business-Logic layer
 
-const router = require('express').Router()
-const mangaService = require('./mangas.service')
+const router = require("express").Router();
+const mangaService = require("./mangas.service");
+const passport = require("passport");
+require("../auth/jwt.strategy");
 
-router.get('/', mangaService.getAllMangas)
+router.get("/", mangaService.getAllMangas);
 
-router.get('/:id', mangaService.getManga)
+router.get("/:id", mangaService.getManga);
 
-router.post('/', mangaService.createManga)
+router.post("/", passport.authenticate("jwt"), mangaService.createManga);
 
-router.put('/:id', mangaService.updateManga)
+router.put("/:id", passport.authenticate("jwt"), mangaService.updateManga);
 
-router.delete('/:id', mangaService.deleteManga)
+router.delete("/:id", passport.authenticate("jwt"), mangaService.deleteManga);
 
 module.exports = router;
