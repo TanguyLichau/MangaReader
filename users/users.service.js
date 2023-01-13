@@ -31,10 +31,6 @@ async function loginUser(req, res) {
   res.status(200).json({ token });
 }
 
-async function logoutUser(req, res) {
-  console.log("dedans");
-}
-
 async function getAllUsers(req, res) {
   userModel
     .find({})

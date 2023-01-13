@@ -4,15 +4,9 @@ const passport = require("passport");
 require("../auth/jwt.strategy");
 require("../auth/local.strategy");
 
-router.post(
-  "/register",
-  passport.authenticate("local"),
-  userService.registerUser
-);
+router.post("/register", userService.registerUser);
 
 router.post("/login", passport.authenticate("local"), userService.loginUser);
-
-router.get("/logout", userService.logoutUser);
 
 router.get("/", passport.authenticate("jwt"), userService.getAllUsers);
 
