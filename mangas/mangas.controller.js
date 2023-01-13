@@ -7,6 +7,8 @@ require("../auth/jwt.strategy");
 
 router.get("/", mangaService.getAllMangas);
 
+router.get("/:name", mangaService.getAllMangasByCreatorName);
+
 router.get("/:id", mangaService.getManga);
 
 router.post("/", passport.authenticate("jwt"), mangaService.createManga);

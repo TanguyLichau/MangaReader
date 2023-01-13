@@ -5,6 +5,7 @@ const mangaSchema = new mongoose.Schema({
   lastChapterRead: { type: Number, required: true },
   coverUrl: { type: String },
   isFavorite: { type: Boolean },
+  creatorName: { type: String },
 });
 
 const Manga = mongoose.model("mangas", mangaSchema);

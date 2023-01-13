@@ -73,7 +73,6 @@ async function deleteCurrentUser(req, res) {
 module.exports = {
   registerUser,
   loginUser,
-  logoutUser,
   getAllUsers,
   checkPassword,
   getCurrentUser,
